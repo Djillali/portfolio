@@ -1,0 +1,1 @@
+<livewire:artist.create />
