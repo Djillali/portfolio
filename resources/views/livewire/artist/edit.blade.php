@@ -36,11 +36,12 @@
 							</div>
 							<div class="flex flex-col mb-2 mr-3 ml-3 md:w-1/4">
 								<a href="https://www.google.com/search?q={{$name}}&tbm=isch" target="_blank"><button wire:click="search" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none" type="button">Search google</button></a>
-								<div x-data="{ open: false}">
+								<div x-data="{ open: true}">
 									<button wire:model="btnState" wire:click="btnState" type="button" @click="open = true" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">{{$btnState}}</button>
 									<div x-show="open" @click.away="open = false" class="mx-auto p-4 bg-white overflow-hidden">
-										<img class="object-none" style="max-height: 400px;" src="{{ $picture }}"
-										alt="Picture not loading">
+										<div style="width: 200px">
+											<img src="{{$picture}}" alt="Picture not loading :(" class="img-fluid">
+										</div>
 									</div>
 								</div>
 							</div>
@@ -54,7 +55,7 @@
 
 							<dir class="flex flex-col mb-2 md:w-1/4">
 								<label for='date_of_birth'>Date of birth: </label>
-								<input wire:model="date_of_birth" class="form-control" type="date" name="date_of_birth" id="date_of_birth" value="{{$artist->date_of_birth}}"/>
+								<input wire:model="date_of_birth" class="form-control" type="date" name="date_of_birth" id="date_of_birth"/>
 							    <script>
 							        $('#date_of_birth').datepicker({
 							            uiLibrary: 'bootstrap4'
@@ -64,7 +65,7 @@
 
 							<dir class="flex flex-col mb-2 md:w-1/4">
 								<label for='date_of_death'>Date of death: </label>
-								<input wire:model="date_of_death" class="form-control" type="date" name="date_of_death" id="date_of_death" value="{{$artist->date_of_death}}"/>
+								<input wire:model="date_of_death" class="form-control" type="date" name="date_of_death" id="date_of_death"/>
 							    <script>
 							        $('#date_of_death').datepicker({
 							            uiLibrary: 'bootstrap4'
@@ -79,7 +80,7 @@
 							<textarea wire:model="description" class="border py-2 px-3 text-grey-darkest" id="description" name="description" rows="3"></textarea>
 						</div>
 
-						<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mb-4 border border-blue-500 hover:border-transparent rounded"type="submit">Update</button>
+						<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white border block text-lg mx-auto p-4 rounded" type="submit">{{$submit_string}}</button>
 				    </form>
 				</div>
 		    </div>

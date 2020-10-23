@@ -8,25 +8,35 @@ use Livewire\Component;
 class Create extends Component
 {
 
-	public $name;
-	public $picture;
-	public $description;
-	public $country;
-	public $date_of_birth;
-	public $date_of_death;
+    public $name;
+    public $picture;
+    public $description;
+    public $country;
+    public $date_of_birth;
+    public $date_of_death;
+    public $btnState;
+    public $submit_string;
+    public $header;
 
-	protected $rules = [
+    protected $rules = [
             'name' => 'required|max:255|min:3',
         ];
 
-	public function updated($propertyName)
-	{
-		$this->validateOnly($propertyName);
-	}
+    public function mount()
+    {
+        $this->btnState = "Hide picture";
+        $this->header = "Manually add a new artist";
+        $this->submit_string = "Create";
+    }
 
-	public function submitForm()
-	{
-		$validatedData = $this->validate();
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    public function submitForm()
+    {
+        $validatedData = $this->validate();
 
 
         $artist = new Artist();
@@ -41,10 +51,12 @@ class Create extends Component
         session()->flash('success_message','Artist successfully created');
 
         redirect('/music/artists');
-	}
+    }
 
     public function render()
     {
-        return view('livewire.artist.create');
+        return view('livewire.artist.edit');
     }
+
+
 }
