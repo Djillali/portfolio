@@ -32,8 +32,8 @@ class Create extends Component
         $artist = new Artist();
         $artist->name = $this->name;
         $artist->picture = $this->picture;
-        $artist->date_of_birth = $date_of_birth;
-        $artist->date_of_death = $date_of_death;
+        $artist->date_of_birth = $this->date_of_birth;
+        $artist->date_of_death = $this->date_of_death;
         $artist->country = $this->country;
         $artist->description = $this->description;
         $artist->save();

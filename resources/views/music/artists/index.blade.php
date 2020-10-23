@@ -4,6 +4,9 @@
             Manage artists
         </h2>
     </x-slot>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 		        <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
 				    <div class="px-6 py-4 text-2xl">
 				    	<div class="font-bold text-xl mb-2">List all artists from database:</div>
@@ -33,7 +36,7 @@
 									<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{$artist->name}}</td>
 									<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{\App\Models\Artist::find($artist->id)->age}} years</td>
 									<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{$artist->country}}</td>
-									<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+									<td class="px-6 py-4 border-b border-gray-500">
 										{{\Illuminate\Support\Str::limit($artist->description, 300, '(...)') }}
 									</td>
 									<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
@@ -62,8 +65,11 @@
 
 				    <br>
 
-					<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+					<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mb-4 border border-blue-500 hover:border-transparent rounded">
 						<a href="/music/artists/create">Add a new artist manually</a>
 					</button>
 				</div>
+			</div>
+		</div>
+	</div>
 </x-app-layout>

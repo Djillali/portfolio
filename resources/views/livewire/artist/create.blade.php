@@ -1,6 +1,5 @@
 <div>
 
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -18,60 +17,67 @@
 
 				    <br>
 
-				    <form wire:submit.prevent="submitForm" class="mb-6" method="POST" action="/music/artists">
+				    <form wire:submit.prevent="submitForm" method="POST" action="/music/artists">
 					@csrf
-						// NAME
-						<div class="flex flex-col mb-4">
-							<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="name">Artist name:</label>
-							<input wire:model="name" class="border py-2 px-3 text-grey-darkest" type="text" name="name" id="name">
-							@error('name')
-							<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-							  <span class="block sm:inline">{{$message}}</span>
+						<div class="flex items-center w-full">
+							<div class="flex flex-col mb-2 mr-3 ml-3 md:w-1/4">
+								<label class="mb-2 uppercase text-lg text-grey-darkest" for="name">Artist name:</label>
+								<input wire:model="name" class="border py-2 px-3 text-grey-darkest" type="text" name="name" id="name">
+								@error('name')
+								<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+								  <span class="block sm:inline">{{$message}}</span>
+								</div>
+								@enderror
 							</div>
-							@enderror
-						</div>
 
-						<div class="flex flex-col mb-4">
-							<label class="mb-2 uppercase font-bold text-lg text-grey-darkest disable" for="picture">Artist picture:</label>
-							<input wire:model="picture" class="border py-2 px-3 text-grey-darkest" type="text" name="picture" id="picture" value="{{$picture}}">
-							<a href="https://www.google.com/search?q={{$name}}&tbm=isch" target="_blank"><button class="border block rounded text-lg mx-auto p-4" type="button">Search google</button></a>
-							<div class="bg-white overflow-hidden">
-							<img class="object-none" style="max-height: 400px;" src="{{ $picture }}"
-							alt="Picture not loading">
+							<div class="flex flex-col mb-2 mr-3 ml-3 md:w-2/4">
+								<label class="mb-2 uppercase text-lg text-grey-darkest disable" for="picture">Artist picture:</label>
+								<input wire:model="picture" class="border py-2 px-3 text-grey-darkest" type="text" name="picture" id="picture" value="{{$picture}}">
 							</div>
+							<div class="flex flex-col mb-2 mr-3 ml-3 md:w-1/4">
+								<a href="https://www.google.com/search?q={{$name}}&tbm=isch" target="_blank"><button class="border block rounded text-lg mx-auto p-4" type="button">Search google</button></a>
+								<div class="bg-white overflow-hidden">
+								<img class="object-none" style="max-height: 400px;" src="{{ $picture }}"
+								alt="Picture not loading">
+								</div>
+							</div>
+						</diV>
+						<div class="flex items-center w-full">
+							<div class="flex flex-col mb-2 md:w-1/4">
+								<label class="mb-2 uppercase text-lg text-grey-darkest" for="country">Artist country:</label>
+								<input wire:model="country" class="border py-2 px-3 text-grey-darkest" type="text" name="country" id="country">
+							</div>
+
+							<dir class="flex flex-col mb-2 md:w-1/4">
+								<label class="mb-2 uppercase text-lg text-grey-darkest" for='date_of_birth'>Date of birth: </label>
+								<input wire:model="date_of_birth" class="form-control" type="date" name="date_of_birth" id="date_of_birth"/>
+							    <script>
+							        $('#date_of_birth').datepicker({
+							            uiLibrary: 'bootstrap4'
+							        });
+							    </script>
+							</dir>
+
+							<dir class="flex flex-col mb-2 md:w-1/4">
+								<label class="mb-2 uppercase text-lg text-grey-darkest" for='date_of_death'>Date of death: </label>
+								<input wire:model="date_of_death" class="form-control" type="date" name="date_of_death" id="date_of_death"/>
+							    <script>
+							        $('#date_of_death').datepicker({
+							            uiLibrary: 'bootstrap4'
+							        });
+							    </script>
+							</dir>
+
 						</div>
 
-						<div class="flex flex-col mb-4">
-							<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for="country">Artist country:</label>
-							<input wire:model="country" class="border py-2 px-3 text-grey-darkest" type="text" name="country" id="country">
-						</div>
-
-						<div class="flex flex-col mb-4">
-							<label class="mb-2 uppercase font-bold text-lg text-grey-darkest" for='description'>Description: </label>
+						<div class="flex flex-col mb-2 md:w-full">
+							<label class="mb-2 uppercase text-lg text-grey-darkest" for='description'>Description: </label>
 							<textarea wire:model="description" class="border py-2 px-3 text-grey-darkest" id="description" name="description" rows="3"></textarea>
 						</div>
 
-						<dir class="form-group">
-							<label for='date_of_birth'>Date of birth: </label>
-							<input wire:model="date_of_birth" class="form-control" type="date" name="date_of_birth" id="date_of_birth"/>
-						    <script>
-						        $('#date_of_birth').datepicker({
-						            uiLibrary: 'bootstrap4'
-						        });
-						    </script>
-						</dir>
 
-						<dir class="form-group">
-							<label for='date_of_death'>Date of death: </label>
-							<input wire:model="date_of_death" class="form-control" type="date" name="date_of_death" id="date_of_death"/>
-						    <script>
-						        $('#date_of_death').datepicker({
-						            uiLibrary: 'bootstrap4'
-						        });
-						    </script>
-						</dir>
 
-						<button class="bg-teal-100 border block hover:bg-teal-dark text-black uppercase text-lg mx-auto p-4 rounded" type="submit">Add</button>
+						<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white border block text-lg mx-auto p-4 rounded" type="submit">Add</button>
 				    </form>
 				</div>
 		    </div>
