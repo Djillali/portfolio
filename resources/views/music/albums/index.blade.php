@@ -37,9 +37,17 @@
 										{{\Illuminate\Support\Str::limit($album->description, 300, '(...)') }}
 									</td>
 									<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+										<a class="btn btn-outline-primary" role="button" href="/music/albums/{{$album->id}}">
+										<button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Show</button>
+										</a>
+
+										<br>
+
 										<a class="btn btn-outline-primary" role="button" href="/music/albums/{{$album->id}}/edit">
 										<button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Modify</button>
-										</a><br>
+										</a>
+
+										<br>
 
 										<form method="post" action="/music/albums/{{$album->id}}">
 											@csrf
