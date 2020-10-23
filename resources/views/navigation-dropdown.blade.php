@@ -19,6 +19,10 @@
                     <x-jet-nav-link href="{{ route('artists') }}" :active="request()->routeIs('*artists*')">
                         {{ __('Manage artists') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('albums') }}" :active="request()->routeIs('*albums*')">
+                        {{ __('Manage albums') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -125,9 +129,13 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-nav-link href="{{ route('artists') }}" :active="request()->routeIs('*artists*')">
+            <x-jet-responsive-nav-link href="{{ route('artists') }}" :active="request()->routeIs('*artists*')">
                 {{ __('Manage artists') }}
-            </x-jet-nav-link>
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('albums') }}" :active="request()->routeIs('*albums*')">
+                {{ __('Manage albums') }}
+            </x-jet-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
