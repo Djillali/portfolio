@@ -65,9 +65,33 @@
 
 				    <br>
 
-					<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mb-4 border border-blue-500 hover:border-transparent rounded">
-						<a href="/music/artists/create">Add a new artist manually</a>
-					</button>
+				    <a href="/music/artists/create"><button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mb-4 border border-blue-500 hover:border-transparent rounded">
+						Add a new artist manually
+					</button></a>
+
+					<br>
+					<a href="/music/artists/export"><button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mb-4 border border-blue-500 hover:border-transparent rounded">
+						Export artists into .json file
+					</button></a>
+
+					<br>
+
+					<div class="col-5">
+						<form method="POST" action="/music/artists/import" enctype="multipart/form-data">
+							@csrf
+							<div class="input-group">
+								<div class="file_input">
+									<label class="image_input_button md1-button md1-js-button md1-button--fab">
+										<i class="material-icons">Upload artists .json file: </i>
+										<input type="file" name="filename" id="filename" class="none">
+									</label>
+									<button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mb-4 border border-blue-500 hover:border-transparent rounded">Import artists from .json</button>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
 				</div>
 			</div>
 		</div>

@@ -27,6 +27,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/music/artists', [ArtistController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('artists');
 Route::get('/music/artists/create', [ArtistController::class, 'create'])->middleware(['auth:sanctum', 'verified'])->name('artists.create');
 Route::post('/music/artists', [ArtistController::class, 'store'])->middleware(['auth:sanctum', 'verified'])->name('artists.store');
+Route::get('/music/artists/export', [ArtistController::class, 'export'])->middleware(['auth:sanctum', 'verified'])->name('artists.export');
+Route::post('/music/artists/import', [ArtistController::class, 'import'])->middleware(['auth:sanctum', 'verified'])->name('artists.import');
 Route::get('/music/artists/{artist}/edit', [ArtistController::class, 'edit'])->middleware(['auth:sanctum', 'verified'])->name('artists.edit');
 Route::put('/music/artists/{artist}', [ArtistController::class, 'update'])->middleware(['auth:sanctum', 'verified'])->name('artists.update');
 Route::delete('/music/artists/{artist}', [ArtistController::class, 'destroy'])->middleware(['auth:sanctum', 'verified'])->name('artists.destory');
