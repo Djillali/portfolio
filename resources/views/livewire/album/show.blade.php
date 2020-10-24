@@ -51,16 +51,25 @@
 
 				    			<tr>
 				    				<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">Disc:{{$track->disc_number}} #{{$track->position}} - {{$track->title}} ({{$track->duration}})</td>
-				    				<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">None</td>
+				    				<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+				    					@foreach($track->performers as $performer)
+				    					{{$performer->artist->name}} ({{$performer->type}})
+				    					<button wire:click="deletePerformer({{$performer}})" type="button" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Delete performer</button>
+				    					<br>
+				    					@endforeach
+				    				</td>
 				    				<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
 				    					<a role="button" href="/music/tracks/{{$track->id}}/edit">
 											<button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Modify</button>
+										</a>
+										<a role="button" href="/music/tracks/{{$track->id}}/performers/create">
+											<button class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none">Add performer</button>
 										</a>
 										<form method="post" action="/music/tracks/{{$track->id}}">
 										@csrf
 										@method('delete')
 											<button type="button" class="px-5 py-2 border-blue-500 border text-blue-500 rounded transition duration-300 hover:bg-blue-700 hover:text-white focus:outline-none" onclick="confirm('{{ __("Are you sure you want to delete this album?") }}') ? this.parentElement.submit() : ''">
-												<i class="material-icons">Delete</i>
+												<i class="material-icons">Delete Track</i>
 												<div class="ripple-container"></div>
 											</button>
 										</form>

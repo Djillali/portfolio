@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\PerformerController;
 use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,3 +47,6 @@ Route::delete('/music/albums/{album}', [AlbumController::class, 'destroy'])->mid
 Route::get('/music/albums/{album}/tracks/create', [TrackController::class, 'create'])->middleware(['auth:sanctum', 'verified'])->name('albums.tracks.create');
 Route::get('/music/tracks/{track}/edit', [TrackController::class, 'edit'])->middleware(['auth:sanctum', 'verified'])->name('albums.tracks.edit');
 Route::delete('/music/tracks/{track}', [TrackController::class, 'destroy'])->middleware(['auth:sanctum', 'verified'])->name('albums.tracks.destory');
+
+//Manage performers
+Route::get('/music/tracks/{track}/performers/create', [PerformerController::class, 'create'])->middleware(['auth:sanctum', 'verified'])->name('albums.tracks.performers.create');
