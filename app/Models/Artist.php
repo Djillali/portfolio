@@ -14,13 +14,18 @@ class Artist extends Model
     //Calculate the age of the artist
     public function getAgeAttribute()
     {
-    	// If still alive
-    	if (empty($this->attributes['date_of_birth'])) {
-    		return Carbon::parse($this->attributes['date_of_birth'])->age;
-    	// if dead
-    	}else{
-    		return Carbon::parse($this->attributes['date_of_death'])->diff(Carbon::parse($this->attributes['date_of_birth']))->format('%y');
-    	}
+    	if(!empty($this->attributes['date_of_birth']))
+        {
+            // If still alive
+            if (empty($this->attributes['date_of_birth'])) {
+                return Carbon::parse($this->attributes['date_of_birth'])->age;
+            // if dead
+            }else{
+                return Carbon::parse($this->attributes['date_of_death'])->diff(Carbon::parse($this->attributes['date_of_birth']))->format('%y');
+            }
+        }else{
+            return 0;
+        }
     }
 
     protected $appends = ['age'];

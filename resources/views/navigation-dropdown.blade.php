@@ -23,6 +23,9 @@
                     <x-jet-nav-link href="{{ route('albums') }}" :active="request()->routeIs('*albums*')">
                         {{ __('Manage albums') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('imports.create') }}" :active="request()->routeIs('*imports*')">
+                        {{ __('Import data') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

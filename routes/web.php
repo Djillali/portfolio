@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\PerformerController;
 use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,12 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+//Manage imports
+Route::get('/music/imports/create', [ImportController::class, 'create'])->middleware(['auth:sanctum', 'verified'])->name('imports.create');
+Route::get('/music/imports/discogs/{discog}', [ImportController::class, 'store'])->middleware(['auth:sanctum', 'verified'])->name('imports.store');
+Route::get('/music/imports/results', [ImportController::class, 'show'])->middleware(['auth:sanctum', 'verified'])->name('imports.result');
 
 
 //Manage artists
@@ -50,3 +57,4 @@ Route::delete('/music/tracks/{track}', [TrackController::class, 'destroy'])->mid
 
 //Manage performers
 Route::get('/music/tracks/{track}/performers/create', [PerformerController::class, 'create'])->middleware(['auth:sanctum', 'verified'])->name('albums.tracks.performers.create');
+
