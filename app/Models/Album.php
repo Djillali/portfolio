@@ -4,10 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Album extends Model
 {
     use HasFactory;
+
+    protected $dates = [
+        'release_date',
+        'updated_at',
+        'release_date',
+    ];
 
     public function tracks()
     {
@@ -20,7 +27,7 @@ class Album extends Model
     	$result = "";
     	foreach ($this->tracks as $track) {
     		foreach ($track->performers as $performer) {
-    			if($performer->type == "main")
+    			if(strtolower($performer->type) == "main")
     			{
     				if(!Str::contains($result, $performer->artist->name))
     				{

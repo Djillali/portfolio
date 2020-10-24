@@ -44,6 +44,7 @@ Route::put('/music/artists/{artist}', [ArtistController::class, 'update'])->midd
 Route::delete('/music/artists/{artist}', [ArtistController::class, 'destroy'])->middleware(['auth:sanctum', 'verified'])->name('artists.destory');
 
 //Manage albums
+Route::get('/music/albums/library', [AlbumController::class, 'library']);
 Route::get('/music/albums', [AlbumController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('albums');
 Route::get('/music/albums/create', [AlbumController::class, 'create'])->middleware(['auth:sanctum', 'verified'])->name('albums.create');
 Route::get('/music/albums/{album}', [AlbumController::class, 'show'])->middleware(['auth:sanctum', 'verified'])->name('albums.show');

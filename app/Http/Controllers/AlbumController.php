@@ -21,6 +21,13 @@ class AlbumController extends Controller
         return view('music.albums.index', ['albums' => $albums]);
     }
 
+
+    public function Library()
+    {
+        return view('music.albums.library');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -51,18 +58,6 @@ class AlbumController extends Controller
     public function edit(Album $album)
     {
         return view('music.albums.edit', ['album' => $album]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Album  $album
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Album $album)
-    {
-        //
     }
 
     /**
