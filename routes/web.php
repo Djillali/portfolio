@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\GifController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\PerformerController;
 use App\Http\Controllers\TrackController;
@@ -32,6 +33,12 @@ Route::get('/music/imports/create', [ImportController::class, 'create'])->middle
 Route::get('/music/imports/discogs/{discog}', [ImportController::class, 'store'])->middleware(['auth:sanctum', 'verified'])->name('imports.store');
 Route::get('/music/imports/results', [ImportController::class, 'show'])->middleware(['auth:sanctum', 'verified'])->name('imports.result');
 
+
+//Gif Organizer
+Route::get('/gif', [GifController::class, 'index']);
+Route::get('/gif/create', [GifController::class, 'create'])->middleware(['auth:sanctum', 'verified']);
+Route::get('/gif/{gif}/edit', [GifController::class, 'edit'])->middleware(['auth:sanctum', 'verified']);
+Route::get('/gif/{gif}/delete', [GifController::class, 'destroy'])->middleware(['auth:sanctum', 'verified']);
 
 //Manage artists
 Route::get('/music/artists', [ArtistController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('artists');
