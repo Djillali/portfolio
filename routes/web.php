@@ -39,6 +39,7 @@ Route::get('/gif', [GifController::class, 'index']);
 Route::get('/gif/create', [GifController::class, 'create'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/gif/{gif}/edit', [GifController::class, 'edit'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/gif/{gif}/delete', [GifController::class, 'destroy'])->middleware(['auth:sanctum', 'verified']);
+Route::get('/giftags/{giftag}/delete', [GifController::class, 'destroyTag'])->middleware(['auth:sanctum', 'verified']);
 
 //Manage artists
 Route::get('/music/artists', [ArtistController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('artists');

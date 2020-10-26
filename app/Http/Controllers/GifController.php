@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gif;
+use App\Models\Giftag;
 use Illuminate\Http\Request;
 
 class GifController extends Controller
@@ -82,5 +83,12 @@ class GifController extends Controller
     {
         Gif::destroy($gif->id);
         return redirect('gif');
+    }
+
+    public function destroyTag(Giftag $giftag)
+    {
+        $gif = $giftag->gif;
+        Giftag::destroy($giftag->id);
+        return redirect('gif/' . $gif->id . '/edit');
     }
 }

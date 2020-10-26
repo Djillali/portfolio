@@ -1,3 +1,4 @@
+
 <div>
 
 
@@ -6,46 +7,72 @@
     <div class="py-4">
         <div class="max-w-full mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-400 overflow-hidden shadow-xl sm:rounded-lg">
-            	<div class="m-8 font-semibold">
-					Gif organizer:
-				</div>
-
 				<div class="p-6 sm:px-20 bg-gray-400 border-b border-gray-200">
-				    <form wire:submit.prevent="submitForm" class="mb-6" method="POST" action="/admin/music/tracks">
+
+				    <form wire:submit.prevent="submitForm" class="mb-6" method="POST" action="/music/tracks">
 					@csrf
 						<div class="flex items-center w-full">
-		                  <div>
+		                  <div class="mr-6">
 		                    <input wire:model="search" name="search" id="search" type="search" class="w-32 lg:w-64 px-4 py-3 leading-tight text-sm text-gray-700 bg-gray-100 rounded-md placeholder-gray-500 border border-transparent focus:outline-none focus:bg-white focus:shadow-outline focus:border-blue-400" placeholder="Search" aria-label="Search">
 		                  </div>
+		                 	@guest
+								<a href="/gif/create">Register/Login in order to be able to add new gifs.</a>
+							@endguest
+							@auth
+								<a href="/gif/create">
+									<button type="button" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Add a new gif</button>
+								</a>
+							@endauth
 						</div>
 				    </form>
 				</div>
 
-				<div class="ml-8">
-					@guest
-						<a href="/gif/create">Register/Login in order to be able to add new gifs.</a>
-					@endguest
-					@auth
-						<a href="/gif/create">
-							<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Add a new gif</button>
-						</a>
-					@endauth
+				<div class="d-flex justify-content-center">
+					{!! $gifs->links() !!}
 				</div>
 
-				@forelse($gifs as $gif)
-				{{$gif->title}}
-				@auth
-					<a href="/gif/{{$gif->id}}/edit">
-						<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Edit</button>
-					</a>
-					<a href="/gif/{{$gif->id}}/delete">
-						<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Delete</button>
-					</a>
-				@endauth
-				<br>
-				@empty
-				No gif found.
+			    <div class="  grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 m-5 mb-10">
+			    @forelse($gifs as $gif)
+			        <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+			            <div class="bg-cover bg-center h-56 p-4"
+			                style="background-image: url({{$gif->url}})">
+
+			            </div>
+			            <div class="m-2 text-sm">
+			                <p class=" text-right  text-s">Added {{$gif->created_at->diffForHumans()}}</p>
+			                <h2 class="text-3xl p-0 text-grey-dark">{{$gif->title}}</h2>
+			                Tags:
+			                <div class="grid grid-cols-4 gap-2">
+			                	@forelse($gif->gifTags as $gifTag)
+				                	<a href="#" class="items-center p-4 bg-blue-200 rounded-lg shadow-xs cursor-pointer hover:bg-blue-500 hover:text-gray-100 mr-2">
+				                	{{$gifTag->tag->tag}}
+				                	</a>
+			                	@empty
+				               	 No tags added yet.
+				                @endforelse
+			                </div>
+			            </div>
+			          	@auth
+						<a href="/gif/{{$gif->id}}/edit">
+							<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mb-2">Edit</button>
+						</a>
+						<a href="/gif/{{$gif->id}}/delete">
+							<button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Delete</button>
+						</a>
+						@endauth
+			        </div>
+			    @empty
+				<h2 class=" font-bold h-2 mb-5 text-center">0 gif found.</h2>
 				@endforelse
+				</div>
+
+
+
+
+
+				<div class="d-flex justify-content-center">
+					{!! $gifs->links() !!}
+				</div>
 			</div>
 		</div>
 	</div>

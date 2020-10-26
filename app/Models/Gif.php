@@ -11,7 +11,7 @@ class Gif extends Model
 
     public function giftags()
     {
-    	return $this->hasMany('App\Models\giftag');
+    	return $this->hasMany('App\Models\Giftag');
     }
 
     public function user()

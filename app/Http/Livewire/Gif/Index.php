@@ -17,7 +17,7 @@ class Index extends Component
                         ->paginate(10);
 
         return view('livewire.gif.index', [
-        	'gifs' => Gif::where('title','like','%' . $this->search . '%')->paginate(10),
+        	'gifs' => Gif::where('title','like','%' . $this->search . '%')->paginate(4),
         ]);
     }
 }

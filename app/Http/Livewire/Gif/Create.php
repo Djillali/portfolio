@@ -3,24 +3,26 @@
 namespace App\Http\Livewire\Gif;
 
 use App\Models\Gif;
+use App\Models\Tag;
+use App\Models\GifTag;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Create extends Component
 {
-	public $submit_string;
-	public $title;
-	public $url;
-	public $tags;
+    public $header;
+    public $submit_string;
+    public $title;
+    public $url;
 
-	protected $rules = [
+    protected $rules = [
             'title' => 'required|max:255|min:3',
             'url' => 'required|url|max:255|min:3',
-            'tags' => 'required',
         ];
 
     public function mount()
     {
+        $this->header = "Add new gif";
         $this->submit_string = "Create";
     }
 
@@ -30,8 +32,8 @@ class Create extends Component
     }
 
     public function submitForm()
-	{
-		$validatedData = $this->validate();
+    {
+        $validatedData = $this->validate();
 
         $gif = new Gif();
         $gif->title = $this->title;
@@ -40,9 +42,10 @@ class Create extends Component
         $gif->save();
 
         redirect('/gif');
-	}
+    }
 
-	public function updated($propertyName)
+
+    public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
     }
