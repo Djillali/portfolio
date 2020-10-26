@@ -151,6 +151,6 @@ class GifController extends Controller
                  }
             }
         }
-        return redirect('/gifs');
+        return redirect('/gif');
     }
 }
