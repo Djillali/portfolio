@@ -34,9 +34,11 @@ Route::get('/music/imports/discogs/{discog}', [ImportController::class, 'store']
 Route::get('/music/imports/results', [ImportController::class, 'show'])->middleware(['auth:sanctum', 'verified'])->name('imports.result');
 
 
-//Gif Organizer
+//Manage Gif
 Route::get('/gif', [GifController::class, 'index']);
 Route::get('/gif/create', [GifController::class, 'create'])->middleware(['auth:sanctum', 'verified']);
+Route::get('/gif/export', [GifController::class, 'export'])->middleware(['auth:sanctum', 'verified']);
+Route::post('/gif/import', [GifController::class, 'import'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/gif/{gif}/edit', [GifController::class, 'edit'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/gif/{gif}/delete', [GifController::class, 'destroy'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/giftags/{giftag}/delete', [GifController::class, 'destroyTag'])->middleware(['auth:sanctum', 'verified']);

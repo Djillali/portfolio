@@ -39,7 +39,7 @@
 
 			            </div>
 			            <div class="m-2 text-sm">
-			                <p class=" text-right  text-s">Added {{$gif->created_at->diffForHumans()}}</p>
+			                <p class=" text-right  text-s">Added {{$gif->created_at->diffForHumans()}}  by {{$gif->user->name}}</p>
 			                <h2 class="text-3xl p-0 text-grey-dark">{{$gif->title}}</h2>
 			                Tags:
 			                <div class="grid grid-cols-4 gap-2">
@@ -66,13 +66,31 @@
 				@endforelse
 				</div>
 
-
-
-
-
 				<div class="d-flex justify-content-center">
 					{!! $gifs->links() !!}
 				</div>
+
+
+				<div class="m-6">
+					<a href="/gif/export">
+						<button type="button" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Export gifs to .json</button>
+					</a>
+				</div>
+
+
+				<form method="POST" action="/gif/import" enctype="multipart/form-data">
+					@csrf
+					<div class="input-group">
+						<div class="file_input">
+							<label class="image_input_button md1-button md1-js-button md1-button--fab">
+								<i class="material-icons">Upload gifs .json file: </i>
+								<input type="file" name="filename" id="filename" class="none">
+							</label>
+							<button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 mb-4 border border-blue-500 hover:border-transparent rounded">Import gifs from .json</button>
+						</div>
+					</div>
+				</form>
+
 			</div>
 		</div>
 	</div>
