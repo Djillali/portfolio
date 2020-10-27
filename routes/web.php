@@ -62,6 +62,7 @@ Route::get('/music/albums/{album}/edit', [AlbumController::class, 'edit'])->midd
 Route::delete('/music/albums/{album}', [AlbumController::class, 'destroy'])->middleware(['auth:sanctum', 'verified'])->name('albums.destory');
 
 //Manage tracks
+Route::get('/music/tracks', [TrackController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('tracks');
 Route::get('/music/albums/{album}/tracks/create', [TrackController::class, 'create'])->middleware(['auth:sanctum', 'verified'])->name('albums.tracks.create');
 Route::get('/music/tracks/{track}/edit', [TrackController::class, 'edit'])->middleware(['auth:sanctum', 'verified'])->name('albums.tracks.edit');
 Route::delete('/music/tracks/{track}', [TrackController::class, 'destroy'])->middleware(['auth:sanctum', 'verified'])->name('albums.tracks.destory');

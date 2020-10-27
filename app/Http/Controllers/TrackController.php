@@ -15,7 +15,8 @@ class TrackController extends Controller
      */
     public function index()
     {
-        //
+        $tracks = Track::with('album')->orderBy('album_id','desc')->paginate(20);
+        return view('music.tracks.index', ['tracks' => $tracks]);
     }
 
     /**
