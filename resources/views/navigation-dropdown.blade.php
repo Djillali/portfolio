@@ -18,7 +18,6 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-
                     <x-jet-nav-link href="{{ route('artists') }}" :active="request()->routeIs('*artists*')">
                         {{ __('Manage artists') }}
                     </x-jet-nav-link>
@@ -28,6 +27,9 @@
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('tracks') }}" :active="request()->routeIs('*tracks*')">
                         {{ __('Manage tracks') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('gifs') }}" :active="request()->routeIs('*gifs*')">
+                        {{ __('Manage gifs') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('imports.create') }}" :active="request()->routeIs('*imports*')">
                         {{ __('Import data') }}
@@ -151,6 +153,10 @@
 
             <x-jet-responsive-nav-link href="{{ route('tracks') }}" :active="request()->routeIs('*tracks*')">
                 {{ __('Manage tracks') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('gifs') }}" :active="request()->routeIs('*gifs*')">
+                {{ __('Manage gifs') }}
             </x-jet-responsive-nav-link>
         </div>
 

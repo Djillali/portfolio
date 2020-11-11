@@ -17,8 +17,15 @@ class GifController extends Controller
      */
     public function index()
     {
-        return view('gif.index');
+        $gifs = Gif::orderBy('title','asc')->paginate(20);
+        return view('gif.index', ['gifs' => $gifs]);
     }
+
+     public function library()
+    {
+        return view('gif.library');
+    }
+
 
     /**
      * Show the form for creating a new resource.

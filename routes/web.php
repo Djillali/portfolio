@@ -35,7 +35,8 @@ Route::get('/music/imports/results', [ImportController::class, 'show'])->middlew
 
 
 //Manage Gif
-Route::get('/gif', [GifController::class, 'index']);
+Route::get('/gif', [GifController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('gifs');
+Route::get('/gif/library', [GifController::class, 'library']);
 Route::get('/gif/create', [GifController::class, 'create'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/gif/export', [GifController::class, 'export'])->middleware(['auth:sanctum', 'verified']);
 Route::post('/gif/import', [GifController::class, 'import'])->middleware(['auth:sanctum', 'verified']);

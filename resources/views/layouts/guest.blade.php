@@ -33,7 +33,7 @@
                 <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
                   <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/') }}">Home</a>
                   <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/music/albums/library') }}">Library</a>
-                  <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/gif') }}">Gifs Organizer</a>
+                  <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/gif/library') }}">Gifs Organizer</a>
                   @auth
                     <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/dashboard') }}">Dashboard</a>
                                 <!-- Settings Dropdown -->
