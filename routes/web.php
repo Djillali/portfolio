@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\GifController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\PerformerController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TrackController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,11 @@ Route::post('/gif/import', [GifController::class, 'import'])->middleware(['auth:
 Route::get('/gif/{gif}/edit', [GifController::class, 'edit'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/gif/{gif}/delete', [GifController::class, 'destroy'])->middleware(['auth:sanctum', 'verified']);
 Route::get('/giftags/{giftag}/delete', [GifController::class, 'destroyTag'])->middleware(['auth:sanctum', 'verified']);
+
+//Manage tags
+Route::get('/tags', [TagController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('tags');
+Route::get('/tags/{tag}/delete', [TagController::class, 'destroy'])->middleware(['auth:sanctum', 'verified']);
+
 
 //Manage artists
 Route::get('/music/artists', [ArtistController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('artists');

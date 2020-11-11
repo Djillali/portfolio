@@ -31,6 +31,9 @@
                     <x-jet-nav-link href="{{ route('gifs') }}" :active="request()->routeIs('*gifs*')">
                         {{ __('Manage gifs') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('tags') }}" :active="request()->routeIs('*tags*')">
+                        {{ __('Manage tags') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('imports.create') }}" :active="request()->routeIs('*imports*')">
                         {{ __('Import data') }}
                     </x-jet-nav-link>
@@ -157,6 +160,10 @@
 
             <x-jet-responsive-nav-link href="{{ route('gifs') }}" :active="request()->routeIs('*gifs*')">
                 {{ __('Manage gifs') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('tags') }}" :active="request()->routeIs('*tags*')">
+                {{ __('Manage tags') }}
             </x-jet-responsive-nav-link>
         </div>
 

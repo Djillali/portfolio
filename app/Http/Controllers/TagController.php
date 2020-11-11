@@ -14,7 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::orderBy('tag','asc')->paginate(20);
+        return view('tag.index', ['tags' => $tags]);
     }
 
     /**
@@ -80,6 +81,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        Tag::destroy($tag->id);
+        return redirect('/tags');
     }
 }
