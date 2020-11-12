@@ -34,6 +34,7 @@
                   <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/') }}">Home</a>
                   <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/music/albums/library') }}">Library</a>
                   <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/gif/library') }}">Gifs Organizer</a>
+                  <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/contact') }}">Contact me</a>
                   @auth
                     <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{{ url('/dashboard') }}">Dashboard</a>
                                 <!-- Settings Dropdown -->
