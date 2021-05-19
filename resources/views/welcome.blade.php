@@ -16,7 +16,7 @@
                     </div>
 
                     <br>
-                    <p>This website is only used to promote my services, the entire source code is available on GitHub here: <a class="text-blue-600" target="_blank" href="https://github.com/Djillali/Djillali.dev">Djillali/Djillali.dev</a></p>
+                    <p>This website is only used to promote my services, the entire source code is available on GitHub here: <a class="text-blue-600" target="_blank" href="https://github.com/Djillali/portfolio">Djillali/Djillali.dev</a></p>
                     <br>
                     <p>The website consists of a music library where albums are searchable. Once you register an account you will have access to a powerful administration panel. From there you can configure everything related to the music library, (albums, artists, tracks, performers ect). You will also be able to export different pieces of the database into .json files that can be imported at a later date in order to restore the database. On top of being able to add all the information related to an album manually from the administration panel you will also be able to import albums directly from the Discogs api.</p>
                     <br>
