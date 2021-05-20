@@ -7,20 +7,35 @@
         <div class="max-w-full mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-400 overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="text-black m-12 justify-center">
-                    <div class="bg-black h-64 rounded-lg w-2/4 flex items-end justify-center">
-                        <br>
-                        <div class="text-center">
-                            <p class="text-white text-xl">Hi, I'm Djillali.</p>
-                            <p class="text-white text-2xl">I'm a full stack developer and I build websites.</p>
-                        </div>
+                    <div class="text-center">
+                        <p class="text-indigo-500 font-semibold text-xl">Hi, I'm Djillali. Welcome to my online portfolio!</p>
                     </div>
-
                     <br>
-                    <p>This website is only used to promote my services, the entire source code is available on GitHub here: <a class="text-blue-600" target="_blank" href="https://github.com/Djillali/portfolio">Djillali/Djillali.dev</a></p>
+                    <p>This website is a collection of personal projects that I've made during the years and re-created using the PHP framework Laravel 8. The entire source code is publically available on GitHub here: <a class="text-blue-600" target="_blank" href="https://github.com/Djillali/portfolio">Djillali/portfolio</a></p>
                     <br>
-                    <p>The website consists of a music library where albums are searchable. Once you register an account you will have access to a powerful administration panel. From there you can configure everything related to the music library, (albums, artists, tracks, performers ect). You will also be able to export different pieces of the database into .json files that can be imported at a later date in order to restore the database. On top of being able to add all the information related to an album manually from the administration panel you will also be able to import albums directly from the Discogs api.</p>
                     <br>
-                    <p>The website also consists of a gif organizer where users can save their favourite gifs and organize them into different categories for quick access when needed.</p>
+                    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                      <div class="md:flex">
+                        <div class="p-8">
+                          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Music Library</div>
+                          <a href="{{ url('/music/albums/library') }}" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Fully configurable and searchable music library</a>
+                          <p class="mt-2 text-gray-700">Public users can search the music library and display album details.<br>
+                            Registered users will have access to the administration panel from which they can customise everything related to the music library (albums, artists, tracks, performers).<br>
+                            On top of being able to add all the information related to an album manually from the administration panel users will also be able to import albums metadata directly from the Discogs.com api.<br>
+                            Finally, registered users will also be able to export different pieces of the database into .json files that can be re-imported at a later date in order to safely restore the database.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                      <div class="md:flex">
+                        <div class="p-8">
+                          <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Gif Organizer</div>
+                          <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Save your favorite Gifs into a searchable library</a>
+                          <p class="mt-2 text-gray-700">Users can save their favourite animated gifs and organize them using different searchable tags.</p>
+                        </div>
+                      </div>
+                    </div>
                     <br>
                     <p>Feel free to contact me regarding any projects or if you have any questions via the contact page</p>
                     <br>
