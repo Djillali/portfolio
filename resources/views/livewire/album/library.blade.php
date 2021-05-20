@@ -25,12 +25,10 @@
 			    <div class="  grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-2 m-5 mb-10">
 			    @forelse($albums as $album)
 			        <div class="bg-white shadow-xl rounded-lg overflow-hidden">
-			            <div class="bg-cover bg-center h-56 p-4"
-			                style="background-image: url({{$album->picture}})">
+			            <img class="w-full object-cover" src="{{$album->picture}}" alt="Man looking at item at a store">
 
-			            </div>
 			            <div class="m-2 text-sm">
-			                <p class=" text-right  text-s">Release {{$album->release_date->diffForHumans()}}</p>
+			                <p class=" text-right  text-s">Released {{$album->release_date->diffForHumans()}}</p>
 			                <h2 class="text-3xl p-0 text-grey-dark">{{$album->performers}} - {{$album->title}}</h2>
 
 			                @forelse($album->tracks as $track)
@@ -50,7 +48,6 @@
 			                @endforelse
 
 			            </div>
-			            <p class="text-indigo-600 text-right mt-10"> <a class="" href="#">View details...</a></p>
 			        </div>
 			    @empty
 				<h2 class=" font-bold h-2 mb-5 text-center">0 album found.</h2>
