@@ -63,7 +63,7 @@ class AlbumController extends Controller
 
     public function export()
     {
-        $albums = Album::all();
+        $albums = Album::with('tracks','tracks.performers','tracks.performers.artist')->get();
         Storage::disk('public')->put('Albums.json',$albums->toJson());
         return Storage::download('public/Albums.json');
     }
