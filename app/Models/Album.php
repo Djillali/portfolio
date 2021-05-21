@@ -21,6 +21,11 @@ class Album extends Model
     	return $this->hasMany('App\Models\Track');
     }
 
+    public function performers()
+    {
+        return $this->hasMany('App\Models\Performer');
+    }
+
 
     public function getPerformersAttribute()
     {

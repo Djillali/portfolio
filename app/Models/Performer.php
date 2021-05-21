@@ -13,4 +13,9 @@ class Performer extends Model
     {
     	return $this->belongsTo('App\Models\Artist');
     }
+
+        public function album()
+    {
+    	return $this->belongsTo('App\Models\Album');
+    }
 }
