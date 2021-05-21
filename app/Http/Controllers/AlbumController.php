@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AlbumController extends Controller
 {
@@ -58,6 +59,13 @@ class AlbumController extends Controller
     public function edit(Album $album)
     {
         return view('music.albums.edit', ['album' => $album]);
+    }
+
+    public function export()
+    {
+        $albums = Album::all();
+        Storage::disk('public')->put('Albums.json',$albums->toJson());
+        return Storage::download('public/Albums.json');
     }
 
     /**
