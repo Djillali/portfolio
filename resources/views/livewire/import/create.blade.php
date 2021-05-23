@@ -12,7 +12,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 		        <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
 				    <div class="px-6 py-4 text-2xl">
-				    	<div class="font-bold text-lg mb-2">New import</div>
+				    	<div class="font-bold text-lg mb-2">New imports</div>
 				    </div>
 
 				    <br>

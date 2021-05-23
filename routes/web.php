@@ -82,6 +82,7 @@ Route::get('/music/albums/library', [AlbumController::class, 'library']);
 Route::get('/music/albums', [AlbumController::class, 'index'])->middleware(['auth:sanctum', 'verified'])->name('albums');
 Route::get('/music/albums/create', [AlbumController::class, 'create'])->middleware(['auth:sanctum', 'verified'])->name('albums.create');
 Route::get('/music/albums/export', [AlbumController::class, 'export'])->middleware(['auth:sanctum', 'verified'])->name('albums.export');
+Route::post('/music/albums/import', [AlbumController::class, 'import'])->middleware(['auth:sanctum', 'verified'])->name('albums.import');
 Route::get('/music/albums/{album}', [AlbumController::class, 'show'])->middleware(['auth:sanctum', 'verified'])->name('albums.show');
 Route::get('/music/albums/{album}/edit', [AlbumController::class, 'edit'])->middleware(['auth:sanctum', 'verified'])->name('albums.edit');
 Route::delete('/music/albums/{album}', [AlbumController::class, 'destroy'])->middleware(['auth:sanctum', 'verified'])->name('albums.destory');

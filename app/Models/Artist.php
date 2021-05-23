@@ -28,5 +28,5 @@ class Artist extends Model
         }
     }
 
-    protected $appends = ['age'];
+
 }
